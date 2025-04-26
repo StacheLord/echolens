@@ -122,6 +122,7 @@ if st.session_state.core_results:
                 filtered.append(a)
         return filtered
 
+    
     for a in filter_articles(st.session_state.core_results):
         with st.expander(f"{a['title']} [{a['verdict']}]"):
             st.write(f"**URL**: [{a['url']}]({a['url']})")
