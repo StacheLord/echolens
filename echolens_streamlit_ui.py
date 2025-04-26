@@ -68,23 +68,22 @@ if run_extraction and article_url:
     st.success(f"✅ Found and extracted {len(related_urls)} related articles.")
 
 # --- Step 2: Claim Matching ---
+# --- Step 2: Claim Matching ---
 st.header("🧩 Step 2: Enter Claim or Keywords")
 claim_input = st.text_input("Enter key phrases (e.g., 'Trump AND Ukraine OR Musk'):", "Trump AND Ukraine OR Musk")
 exact_match = st.toggle("Require Exact Match", value=False)
 threshold = st.slider("Match Threshold", 50, 100, 60)
 run_match = st.button("Run Analysis")
 
-if run_match and claim_input and st.session_state.related_articles:
+if run_match and claim_input:
     with st.spinner("Running claim comparison and incident matching..."):
         st.session_state.match_results = compare_claim_across_articles(
             claim_input,
+            st.session_state.related_articles,
             threshold=threshold if not exact_match else 100,
-            related_articles=st.session_state.related_articles
+            exact_match=exact_match
         )
-        st.session_state.core_results = run_incident_matching(
-            match_results=st.session_state.match_results,
-            original_article=st.session_state.original_article
-        )
+        st.session_state.core_results = run_incident_matching(st.session_state.match_results)
     st.success("✅ Matching complete.")
 
 # --- Step 3: Explore Results ---
