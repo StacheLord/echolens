@@ -79,9 +79,7 @@ if run_match and claim_input:
     with st.spinner("Running claim comparison and incident matching..."):
         st.session_state.match_results = compare_claim_across_articles(
             claim_input,
-            st.session_state.related_articles,
-            threshold=threshold if not exact_match else 100,
-            exact_match=exact_match
+            threshold=threshold if not exact_match else 100
         )
         st.session_state.core_results = run_incident_matching(
             st.session_state.match_results,
