@@ -68,7 +68,6 @@ if run_extraction and article_url:
     st.success(f"✅ Found and extracted {len(related_urls)} related articles.")
 
 # --- Step 2: Claim Matching ---
-# --- Step 2: Claim Matching ---
 st.header("🧩 Step 2: Enter Claim or Keywords")
 claim_input = st.text_input("Enter key phrases (e.g., 'Trump AND Ukraine OR Musk'):", "Trump AND Ukraine OR Musk")
 exact_match = st.toggle("Require Exact Match", value=False)
@@ -79,6 +78,7 @@ if run_match and claim_input:
     with st.spinner("Running claim comparison and incident matching..."):
         st.session_state.match_results = compare_claim_across_articles(
             claim_input,
+            st.session_state.related_articles,  # <<<<<<<<<< fixed
             threshold=threshold if not exact_match else 100
         )
         st.session_state.core_results = run_incident_matching(
@@ -120,7 +120,6 @@ if st.session_state.core_results:
                 filtered.append(a)
         return filtered
 
-    
     for a in filter_articles(st.session_state.core_results):
         with st.expander(f"{a['title']} [{a['verdict']}]"):
             st.write(f"**URL**: [{a['url']}]({a['url']})")
@@ -226,4 +225,5 @@ if st.session_state.core_results and len(st.session_state.core_results) >= 2:
     st.markdown(f"<div style='border:1px solid #ccc; padding:10px; max-height:400px; overflow:auto;'>{highlighted_a}</div>", unsafe_allow_html=True)
     st.markdown("### 📰 Comparison Article", unsafe_allow_html=True)
     st.markdown(f"<div style='border:1px solid #ccc; padding:10px; max-height:400px; overflow:auto;'>{highlighted_b}</div>", unsafe_allow_html=True)
+
 
