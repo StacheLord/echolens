@@ -3,13 +3,11 @@
 import json
 from rapidfuzz import fuzz
 
-def compare_claim_across_articles(claim_input, article_data_path="related_articles.json", threshold=60):
-    try:
-        with open(article_data_path, "r", encoding="utf-8") as f:
-            articles = json.load(f)
-    except FileNotFoundError:
-        print("❌ related_articles.json not found.")
-        return []
+def compare_claim_across_articles(claim_input, related_articles, threshold=60, exact_match=False):
+    """
+    Compare a claim or set of key phrases across related articles.
+    Now accepts related_articles directly instead of loading from file.
+    """
 
     # Split input claim string into multiple phrases (by comma or semicolon)
     claim_phrases = [phrase.strip() for phrase in claim_input.replace(";", ",").split(",") if phrase.strip()]
@@ -17,7 +15,7 @@ def compare_claim_across_articles(claim_input, article_data_path="related_articl
 
     results = []
 
-    for article in articles:
+    for article in related_articles:
         matches = []
         text = article.get("text", "")
 
@@ -41,7 +39,12 @@ def compare_claim_across_articles(claim_input, article_data_path="related_articl
             best_phrase = None
 
             for phrase in claim_phrases:
-                score = fuzz.partial_ratio(phrase.lower(), sentence.lower())
+                if exact_match:
+                    # Exact match logic: only score 100% if exact
+                    score = 100 if phrase.lower() in sentence.lower() else 0
+                else:
+                    score = fuzz.partial_ratio(phrase.lower(), sentence.lower())
+
                 if score > best_score:
                     best_score = score
                     best_phrase = phrase
