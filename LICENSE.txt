@@ -1,0 +1,24 @@
+EchoLens Software License Agreement
+
+Copyright © 2025 Sunshine Craft & Soap LLC
+
+Permission is hereby granted to any individual to download, install, and use this software (the "Software") for personal, non-commercial purposes only, subject to the following conditions:
+
+1. **Non-Commercial Use Only**: The Software is licensed for personal, non-commercial use. Commercial use, including but not limited to selling, licensing, leasing, or distributing the Software or any derivative works for monetary gain, is strictly prohibited without prior written consent from Sunshine Craft & Soap LLC.
+
+2. **No Redistribution**: You may not distribute, share, or make the Software available to third parties in any form without explicit permission from Sunshine Craft & Soap LLC.
+
+3. **No Modification for Distribution**: Modifying the Software for the purpose of distribution, whether commercially or non-commercially, is not allowed without prior written consent.
+
+4. **Ownership**: Sunshine Craft & Soap LLC retains all rights, title, and interest in and to the Software, including all intellectual property rights.
+
+5. **Disclaimer of Warranty**: The Software is provided "as is," without warranty of any kind, express or implied. Sunshine Craft & Soap LLC disclaims all warranties, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement.
+
+6. **Limitation of Liability**: In no event shall Sunshine Craft & Soap LLC be liable for any damages arising out of or in connection with the use or performance of the Software.
+
+By using the Software, you acknowledge that you have read this agreement, understand it, and agree to be bound by its terms and conditions.
+
+For inquiries regarding commercial use or other permissions, please contact:
+
+Sunshine Craft & Soap LLC  
+contact@sunshinecraftandsoap.com

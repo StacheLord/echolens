@@ -247,3 +247,5 @@ st.markdown("""
 st.markdown("""<hr style="margin-top: 50px;">
 <center><sub>© 2025 Sunshine Craft & Soap LLC • EchoLens v1.0</sub></center>
 """, unsafe_allow_html=True)
+
+st.markdown("[View License](./LICENSE.txt)")
