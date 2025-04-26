@@ -130,6 +130,15 @@ if st.session_state.core_results:
                     st.markdown(f"- [`{m.get('phrase', '?')}` | {m['score']}%] {m['sentence']}")
             else:
                 st.info("No sentence matches found.")
+# --- Fact Check Summary ---
+if st.session_state.fact_checks:
+    st.header("🕵️ Fact Check Results")
+
+    for claim in st.session_state.fact_checks.get("claims", []):
+        st.write(f"🔎 **Claim:** {claim.get('text', 'No text available')}")
+        st.write(f"✅ **Rating:** {claim.get('rating', 'No rating available')}")
+        st.write(f"🌐 **Source:** [{claim.get('publisher', 'Unknown')}]( {claim.get('url', '#')})")
+        st.markdown("---")
 
 # --- Visual Diff Tool ---
 if st.session_state.core_results and len(st.session_state.core_results) >= 2:
@@ -227,3 +236,14 @@ if st.session_state.core_results and len(st.session_state.core_results) >= 2:
     st.markdown(f"<div style='border:1px solid #ccc; padding:10px; max-height:400px; overflow:auto;'>{highlighted_b}</div>", unsafe_allow_html=True)
 
 
+st.markdown("""
+<center>
+<a href="https://www.paypal.com/donate/?business=sunshinecraftandsoap@gmail.com&no_recurring=0&item_name=Support+EchoLens+Development&currency_code=USD" target="_blank">
+    <img src="https://img.shields.io/badge/Donate-PayPal-blue?logo=paypal" style="height: 40px;">
+</a>
+</center>
+""", unsafe_allow_html=True)
+
+st.markdown("""<hr style="margin-top: 50px;">
+<center><sub>© 2025 Sunshine Craft & Soap LLC • EchoLens v1.0</sub></center>
+""", unsafe_allow_html=True)
