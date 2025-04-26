@@ -1,4 +1,4 @@
-# module7_core_match.py
+# modules/module7_core_match.py
 
 import difflib
 import datetime
@@ -6,6 +6,7 @@ import re
 import logging
 from dateutil import parser as date_parser
 import spacy
+
 nlp = spacy.blank("en")
 
 # --- Utility functions ---
@@ -20,7 +21,6 @@ def extract_publish_date(article):
     if article.get('publish_date'):
         return article['publish_date']
     if article.get('text'):
-        # Try to extract date from article text
         date_match = re.search(r"\b(?:\d{1,2} [A-Z][a-z]{2,8} \d{4}|\d{4}-\d{2}-\d{2})\b", article['text'])
         if date_match:
             try:
@@ -28,7 +28,6 @@ def extract_publish_date(article):
             except Exception:
                 pass
     if article.get('url'):
-        # Try extracting date from URL
         url = article['url']
         date_match = re.search(r"(\d{4})[/-](\d{2})[/-](\d{2})", url)
         if date_match:

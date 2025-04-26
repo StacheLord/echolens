@@ -1,13 +1,16 @@
-# module4_claim_comparator.py
+# modules/module4_claim_comparator.py
 
-import json
 from rapidfuzz import fuzz
 
 def compare_claim_across_articles(claim_input, related_articles, threshold=60, exact_match=False):
     """
     Compare a claim or set of key phrases across related articles.
-    Now accepts related_articles directly instead of loading from file.
+    Accepts related_articles directly instead of loading from file.
     """
+
+    if not related_articles:
+        print("❌ No related articles available for comparison.")
+        return []
 
     # Split input claim string into multiple phrases (by comma or semicolon)
     claim_phrases = [phrase.strip() for phrase in claim_input.replace(";", ",").split(",") if phrase.strip()]
@@ -22,9 +25,10 @@ def compare_claim_across_articles(claim_input, related_articles, threshold=60, e
         if not text or len(text.strip()) < 20:
             print(f"⚠️ No usable text found for article: {article.get('title')}")
             results.append({
-                "source": article.get("url"),
+                "url": article.get("url"),
                 "title": article.get("title"),
                 "publish_date": article.get("publish_date", "Unknown"),
+                "text": text,
                 "matches": []
             })
             continue
@@ -60,9 +64,10 @@ def compare_claim_across_articles(claim_input, related_articles, threshold=60, e
                 print(f"🟡 Partial match (ignored) [{best_score:.2f}%] on \"{best_phrase}\" → {sentence}")
 
         result = {
-            "source": article.get("url"),
+            "url": article.get("url"),
             "title": article.get("title"),
             "publish_date": article.get("publish_date", "Unknown"),
+            "text": text,
             "matches": matches
         }
 
