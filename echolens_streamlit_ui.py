@@ -5,18 +5,7 @@ import io
 from datetime import datetime
 from collections import defaultdict
 import spacy
-
-def load_spacy_model():
-    try:
-        return spacy.load("en_core_web_sm")
-    except:
-        # Download model into temp directory
-        from spacy.cli import download
-        download("en_core_web_sm")
-        # Load it manually
-        return spacy.load("en_core_web_sm")
-
-nlp = load_spacy_model()
+nlp = spacy.load("en_core_web_sm")
 import nltk
 nltk.download('punkt')
 from nltk.stem import PorterStemmer

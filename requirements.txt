@@ -15,3 +15,4 @@ tqdm
 lxml[html_clean]
 googlesearch-python
 dotenv
+en-core-web-sm==3.7.1
