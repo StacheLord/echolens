@@ -5,7 +5,6 @@ import io
 from datetime import datetime
 from collections import defaultdict
 import spacy
-import en_core_web_sm
 nlp = en_core_web_sm.load()
 import nltk
 nltk.download('punkt')
