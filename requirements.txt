@@ -1,0 +1,13 @@
+streamlit
+requests
+newspaper3k
+lxml
+beautifulsoup4
+spacy
+nltk
+python-dateutil
+pandas
+scikit-learn
+fuzzywuzzy
+python-Levenshtein
+tqdm
