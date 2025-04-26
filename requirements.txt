@@ -4,6 +4,7 @@ newspaper3k
 lxml
 beautifulsoup4
 spacy
+spacy-lookups-data
 nltk
 python-dateutil
 pandas
