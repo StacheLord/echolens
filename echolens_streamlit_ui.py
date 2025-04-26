@@ -83,7 +83,10 @@ if run_match and claim_input:
             threshold=threshold if not exact_match else 100,
             exact_match=exact_match
         )
-        st.session_state.core_results = run_incident_matching(st.session_state.match_results)
+        st.session_state.core_results = run_incident_matching(
+            st.session_state.match_results,
+            st.session_state.original_article
+        )
     st.success("✅ Matching complete.")
 
 # --- Step 3: Explore Results ---
