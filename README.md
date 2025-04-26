@@ -20,15 +20,15 @@ It allows users to analyze a news article, find related articles across multiple
 
 ## 🌐 Live Demo
 
-👉 [Launch EchoLens](https://your-render-deployment-link-here)  
-*(Replace this link with your Render URL!)*
+👉 [Launch EchoLens]((https://echolens-b0fx.onrender.com)  
+
 
 ---
 
 ## 🛠 Installation (Local Development)
 
 **Clone Repo**
-git clone https://github.com/yourusername/echolens.git
+git clone https://github.com/StacheLord/echolens.git
 cd echolens
 
 **Create and activate virtual environment**
