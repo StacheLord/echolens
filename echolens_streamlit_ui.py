@@ -5,7 +5,8 @@ import io
 from datetime import datetime
 from collections import defaultdict
 import spacy
-nlp = spacy.load("en_core_web_sm")
+import en_core_web_sm
+nlp = en_core_web_sm.load()
 import nltk
 nltk.download('punkt')
 from nltk.stem import PorterStemmer
