@@ -11,3 +11,4 @@ scikit-learn
 fuzzywuzzy
 python-Levenshtein
 tqdm
+lxml[html_clean]
