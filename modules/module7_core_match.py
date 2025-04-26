@@ -6,7 +6,7 @@ import re
 import logging
 from dateutil import parser as date_parser
 import spacy
-nlp = spacy.blank.blank("en")
+nlp = spacy.blank("en")
 
 # --- Utility functions ---
 
