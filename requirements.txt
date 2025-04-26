@@ -13,3 +13,4 @@ python-Levenshtein
 tqdm
 lxml[html_clean]
 googlesearch-python
+dotenv
