@@ -9,9 +9,9 @@ nltk
 python-dateutil
 pandas
 scikit-learn
-fuzzywuzzy
+rapidfuzz
 python-Levenshtein
 tqdm
 lxml[html_clean]
 googlesearch-python
-dotenv
+python-dotenv
